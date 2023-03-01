@@ -1,0 +1,61 @@
+@use "variables";
+
+.letter-container {
+  box-sizing: border-box;
+}
+
+.letter {
+  border: solid variables.$letter-border-width black;
+  box-sizing: border-box;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  font-size: 1.5em;
+
+  &[data-editable="true"] {
+    border-color: #673ab7;
+  }
+
+  textarea {
+    font-size: inherit;
+    line-height: 1em;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(20% - 1px),
+      rgb(133, 124, 114) calc(20% - 1px),
+      rgb(133, 124, 114) 20%
+    );
+    resize: none;
+    // repeating-linear-gradient(#e66465, #e66465 20px, #9198e5 20px, #9198e5 25px);
+    // width: auto;
+  }
+
+  .row-text-input {
+    font-size: inherit;
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-bottom: solid 1px rgb(133, 124, 114);
+    box-sizing: border-box;
+    text-align: center;
+
+    &:focus {
+      outline-color: #8e70c2;
+    }
+  }
+
+  .action-row {
+    display: flex;
+    justify-content: right;
+    gap: 0.2em;
+    margin-top: 0.5em;
+  }
+}
